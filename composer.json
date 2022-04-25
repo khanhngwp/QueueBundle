@@ -1,7 +1,7 @@
 {
-    "name": "ideasbucket/queue-bundle",
-    "type": "ideasbucket-queue-bundle",
-    "description": "IdeasBucket QueueBundle for Symfony Framework",
+    "name": "khanhwp/queue-bundle",
+    "type": "khanhwp-queue-bundle",
+    "description": "Wealthpark QueueBundle for Symfony Framework",
     "keywords": ["queue"],
     "license": "MIT",
     "support": {
