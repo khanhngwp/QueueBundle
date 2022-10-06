@@ -27,10 +27,10 @@ class ListenerOptions extends WorkerOptions
      * @param  int  $maxTries
      * @param  bool  $force
      */
-    public function __construct($environment = null, $delay = 0, $memory = 128, $timeout = 60, $sleep = 3, $maxTries = 0, $force = false)
+    public function __construct($environment = null, $delay = 0, $memory = 128, $timeout = 60, $sleep = 3, $maxTries = 0, $force = false, $exitMessage = '')
     {
         $this->environment = $environment;
 
-        parent::__construct($delay, $memory, $timeout, $sleep, $maxTries, $force);
+        parent::__construct($delay, $memory, $timeout, $sleep, $maxTries, $force, $exitMessage);
     }
 }

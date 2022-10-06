@@ -108,7 +108,8 @@ class WorkCommand extends Command
              ->addOption('force', null, InputOption::VALUE_NONE, 'Force the worker to run even in maintenance mode')
              ->addOption('memory', null, InputOption::VALUE_OPTIONAL, 'The memory limit in megabytes', 128)
              ->addOption('sleep', null, InputOption::VALUE_OPTIONAL, 'Number of seconds to sleep when no job is available', 3)
-             ->addOption('tries', null, InputOption::VALUE_OPTIONAL, 'Number of times to attempt a job before logging it failed', 0);
+             ->addOption('tries', null, InputOption::VALUE_OPTIONAL, 'Number of times to attempt a job before logging it failed', 0)
+             ->addOption('exit_message', null, InputOption::VALUE_OPTIONAL, 'Message that will trigger this worker to stop', '');
     }
 
     /**
@@ -174,7 +175,8 @@ class WorkCommand extends Command
         return new WorkerOptions(
             $input->getOption('delay'), $input->getOption('memory'),
             $input->getOption('timeout'), $input->getOption('sleep'),
-            $input->getOption('tries'), $input->getOption('force')
+            $input->getOption('tries'), $input->getOption('force'), 
+            $input->getOption('exit_message')
         );
     }
 

@@ -47,6 +47,13 @@ class WorkerOptions
     public $force;
 
     /**
+     * Exit if message match
+     *
+     * @var string
+     */
+    public $exitMessage;    
+
+    /**
      * Create a new worker options instance.
      *
      * @param  int  $delay
@@ -55,8 +62,9 @@ class WorkerOptions
      * @param  int  $sleep
      * @param  int  $maxTries
      * @param  bool  $force
+     * @param  string $exitMessage
      */
-    public function __construct($delay = 0, $memory = 128, $timeout = 60, $sleep = 3, $maxTries = 0, $force = false)
+    public function __construct($delay = 0, $memory = 128, $timeout = 60, $sleep = 3, $maxTries = 0, $force = false, $exitMessage = '')
     {
         $this->delay = $delay;
         $this->sleep = $sleep;
@@ -64,5 +72,6 @@ class WorkerOptions
         $this->memory = $memory;
         $this->timeout = $timeout;
         $this->maxTries = $maxTries;
+        $this->exitMessage = $exitMessage;
     }
 }

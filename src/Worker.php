@@ -113,7 +113,11 @@ class Worker
             // fire off this job for processing. Otherwise, we will need to sleep the
             // worker so no more jobs are processed until they should be processed.
             if ($job) {
-
+                // Check if job->getRawBody is set and if matched with exit_message
+                if (!empty($options->exitMessage) && strpos($job->getRawBody(), $options->exitMessage) !== false){
+                    $this->shouldQuit = true;
+                    break;
+                }
                 $this->runJob($job, $connectionName, $options);
 
             } else {

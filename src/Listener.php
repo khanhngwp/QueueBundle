@@ -73,7 +73,7 @@ class Listener
      */
     protected function buildCommandTemplate()
     {
-        $command = 'idb_queue:work %s --once --queue=%s --delay=%s --memory=%s --sleep=%s --tries=%s';
+        $command = 'idb_queue:work %s --once --queue=%s --delay=%s --memory=%s --sleep=%s --tries=%s --exit_message=%s';
 
         return "{$this->phpBinary()} {$this->consoleBinary()} {$command}";
     }
@@ -174,7 +174,8 @@ class Listener
             ProcessUtils::escapeArgument($connection),
             ProcessUtils::escapeArgument($queue),
             $options->delay, $options->memory,
-            $options->sleep, $options->maxTries
+            $options->sleep, $options->maxTries, 
+            $options->exitMessage
         );
     }
 

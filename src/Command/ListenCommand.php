@@ -58,7 +58,8 @@ class ListenCommand extends ContainerAwareCommand
              ->addOption('timeout', null, InputOption::VALUE_OPTIONAL, 'Seconds a job may run before timing out', 60)
              ->addOption('sleep', null, InputOption::VALUE_OPTIONAL, 'Seconds to wait before checking queue for jobs', 3)
              ->addOption('force', null, InputOption::VALUE_OPTIONAL, 'Force the worker to run even in maintenance mode', false)
-             ->addOption('tries', null, InputOption::VALUE_OPTIONAL, 'Number of times to attempt a job before logging it failed', 3);
+             ->addOption('tries', null, InputOption::VALUE_OPTIONAL, 'Number of times to attempt a job before logging it failed', 3)
+             ->addOption('exit_message', null, InputOption::VALUE_OPTIONAL, 'Message that trigger this worker to be exited', '');
     }
 
     /**
@@ -139,7 +140,8 @@ class ListenCommand extends ContainerAwareCommand
             $input->getOption('timeout'),
             $input->getOption('sleep'),
             $input->getOption('tries'),
-            $input->getOption('force')
+            $input->getOption('force'),
+            $input->getOption('exit_message')
         );
     }
 
